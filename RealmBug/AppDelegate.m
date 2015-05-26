@@ -7,16 +7,194 @@
 //
 
 #import "AppDelegate.h"
+#import <Realm.h>
+#import "DataService.h"
+#import "RParent.h"
+#import "RChild.h"
 
 @interface AppDelegate ()
-
+@property (strong,nonatomic) DataService* dataservice;
 @end
 
 @implementation AppDelegate
 
+-(void) documents {
+    NSString *appFolderPath = [[NSBundle mainBundle] resourcePath];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSLog(@"App Directory is: %@", appFolderPath);
+    NSLog(@"Directory Contents:\n%@", [fileManager directoryContentsAtPath: appFolderPath]);
+}
+
+
+
+-(RParent*) giveMeParentObject {
+    
+    RParent* parent = [[RParent alloc] init];
+    parent.name = @"Jimmy";
+    RChild* child = [[RChild alloc] init];
+    child.name = @"Child Andrew";
+    [parent.children addObject:child];
+    
+    return parent;
+}
+
+-(RParent*) giveMeJustParentObject{
+    RParent* parent = [[RParent alloc] init];
+    parent.name = @"Jimmy";
+    return parent;
+}
+
+-(void) parentIsSaved {
+    
+    
+    [self.dataservice saveOnlyRoot:[self giveMeJustParentObject] withCompleteBlock:^(BOOL yes) {
+       
+        RLMResults* results = [RParent allObjects];
+        
+        RParent* parent = [results objectAtIndex:[results count]-1];
+        
+        // updating parent object
+        
+        RParent* updatingParent = [[RParent alloc] initWithValue:parent];
+        updatingParent.name = @"Parent Name is updated!!";
+        
+        
+        [self.dataservice saveOnlyRoot:updatingParent withCompleteBlock:^(BOOL yes) {
+            
+        }];
+        
+        
+    }];
+}
+
+-(void) tooMuchCodeButWorks {
+    
+    [self.dataservice saveRoot:[self giveMeParentObject] withCompleteBlock:^(BOOL no) {
+        
+        RLMResults* results = [RParent allObjects];
+        
+        RParent* parent = [results objectAtIndex:[results count]-1];
+        
+        // updating parent object
+        
+        RParent* updatingParent = [[RParent alloc] init];
+        
+        updatingParent.name = @"Updated Parent name";
+        updatingParent.id = parent.id;
+        
+        RChild* updatingChild = [[RChild alloc] init];
+        
+        RChild* child = [[parent children] objectAtIndex:0];
+        
+        updatingChild.id = child.id;
+        updatingChild.name = @"New Child Name";
+        
+        [updatingParent.children addObject:updatingChild];
+        
+        // this will not a thread error.
+        // but requires quite a bit of work inorder to do a save alot of type
+        
+        [self.dataservice saveRoot:updatingParent withCompleteBlock:^(BOOL Yep) {
+            
+        }];
+        
+        
+    }];
+
+    
+}
+-(void) threadIssueTwo {
+    
+    [self.dataservice saveRoot:[self giveMeParentObject] withCompleteBlock:^(BOOL no) {
+        
+        RLMResults* results = [RParent allObjects];
+        
+        RParent* parent = [results objectAtIndex:[results count]-1];
+        
+        // updating parent object
+        
+        RParent* updatingParent = [[RParent alloc] init];
+        
+        updatingParent.name = @"Updated Parent name";
+        updatingParent.id = parent.id;
+        
+        updatingParent.children = parent.children;
+        
+        // this will not a thread error.
+        // but requires quite a bit of work inorder to do a save alot of type
+        
+        [self.dataservice saveRoot:updatingParent withCompleteBlock:^(BOOL Yep) {
+            
+        }];
+        
+        
+    }];
+
+    
+    
+}
+
+-(void) threadIssue {
+    
+    
+    // This piece of code WILL cause a thread access error.
+    
+    [self.dataservice saveRoot:[self giveMeParentObject] withCompleteBlock:^(BOOL Yep) {
+        
+        RLMResults* results = [RParent allObjects];
+        
+        RParent* parent = [results objectAtIndex:[results count]-1];
+        
+        // updating parent object
+        
+        RParent* updatingParent = [[RParent alloc] initWithValue:parent];
+        
+        updatingParent.name = @"Updated Parent name";
+        
+        [self.dataservice saveRoot:updatingParent withCompleteBlock:^(BOOL Yep) {
+            
+        }];
+        
+    }];
+    
+    
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self documents];
+    self.dataservice = [[DataService alloc] init];
+    // Make sure you run one case at a time since these are async.
+   
+    /**
+     This shows what I am trying to achieve that is reduce the amount of reference copying by coding by hand.
+     **/
+    //[self tooMuchCodeButWorks];
+    
+    /**
+     This shows that init with value does appear to work for my case and copies over the references.
+     **/
+    //[self parentIsSaved];
+
+    
+    /**
+     This shows iusing init with value with children 
+     I add children to the mix it causes a thread access error.
+     **/
+    //[self threadIssue];
+    
+    
+    /**
+     This shows if I just provide a reference to the children it says I am acessing it from a different thread.
+     **/
+    [self threadIssueTwo];
+    
+    
+    // Conclusion initWithValue:(RLMObject*) does not properly reference the children ? 
+    
+    // This piece of code WILL not cause a thread access error.
+    
     return YES;
 }
 

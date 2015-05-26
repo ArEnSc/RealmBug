@@ -14,6 +14,12 @@
 		868952051B15064700D1BBF2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868952041B15064700D1BBF2 /* Images.xcassets */; };
 		868952081B15064700D1BBF2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 868952061B15064700D1BBF2 /* LaunchScreen.xib */; };
 		868952141B15064700D1BBF2 /* RealmBugTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 868952131B15064700D1BBF2 /* RealmBugTests.m */; };
+		86D034EA1B150BBE00554FA9 /* DataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D034E91B150BBE00554FA9 /* DataService.m */; };
+		86D034ED1B150C2000554FA9 /* RParent.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D034EC1B150C2000554FA9 /* RParent.m */; };
+		86D034F01B150D8A00554FA9 /* RChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D034EF1B150D8A00554FA9 /* RChild.m */; };
+		86D034F71B15120F00554FA9 /* RCore.h in Sources */ = {isa = PBXBuildFile; fileRef = 86D034F51B15120F00554FA9 /* RCore.h */; };
+		86D034F81B15120F00554FA9 /* RCore.m in Sources */ = {isa = PBXBuildFile; fileRef = 86D034F61B15120F00554FA9 /* RCore.m */; };
+		E34D811BBFFA8042BF791525 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED68B32304124C10B1BB92E0 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26A7B6F7320ABFB74467746B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		49E2F06463518E0DED2ECD89 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		868951F41B15064700D1BBF2 /* RealmBug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealmBug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		868951F81B15064700D1BBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868951F91B15064700D1BBF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +48,15 @@
 		8689520D1B15064700D1BBF2 /* RealmBugTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmBugTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		868952121B15064700D1BBF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		868952131B15064700D1BBF2 /* RealmBugTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealmBugTests.m; sourceTree = "<group>"; };
+		86D034E81B150BBE00554FA9 /* DataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataService.h; sourceTree = "<group>"; };
+		86D034E91B150BBE00554FA9 /* DataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataService.m; sourceTree = "<group>"; };
+		86D034EB1B150C2000554FA9 /* RParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RParent.h; sourceTree = "<group>"; };
+		86D034EC1B150C2000554FA9 /* RParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RParent.m; sourceTree = "<group>"; };
+		86D034EE1B150D8A00554FA9 /* RChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RChild.h; sourceTree = "<group>"; };
+		86D034EF1B150D8A00554FA9 /* RChild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RChild.m; sourceTree = "<group>"; };
+		86D034F51B15120F00554FA9 /* RCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCore.h; sourceTree = "<group>"; };
+		86D034F61B15120F00554FA9 /* RCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCore.m; sourceTree = "<group>"; };
+		ED68B32304124C10B1BB92E0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34D811BBFFA8042BF791525 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +84,8 @@
 				868951F61B15064700D1BBF2 /* RealmBug */,
 				868952101B15064700D1BBF2 /* RealmBugTests */,
 				868951F51B15064700D1BBF2 /* Products */,
+				F7EE140FFA1CAD09AFC38136 /* Pods */,
+				86E71D72E000C4678A0147E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +103,14 @@
 			children = (
 				868951FB1B15064700D1BBF2 /* AppDelegate.h */,
 				868951FC1B15064700D1BBF2 /* AppDelegate.m */,
+				86D034E81B150BBE00554FA9 /* DataService.h */,
+				86D034E91B150BBE00554FA9 /* DataService.m */,
+				86D034EB1B150C2000554FA9 /* RParent.h */,
+				86D034EC1B150C2000554FA9 /* RParent.m */,
+				86D034EE1B150D8A00554FA9 /* RChild.h */,
+				86D034EF1B150D8A00554FA9 /* RChild.m */,
+				86D034F51B15120F00554FA9 /* RCore.h */,
+				86D034F61B15120F00554FA9 /* RCore.m */,
 				868951FE1B15064700D1BBF2 /* ViewController.h */,
 				868951FF1B15064700D1BBF2 /* ViewController.m */,
 				868952011B15064700D1BBF2 /* Main.storyboard */,
@@ -119,6 +147,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		86E71D72E000C4678A0147E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED68B32304124C10B1BB92E0 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F7EE140FFA1CAD09AFC38136 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49E2F06463518E0DED2ECD89 /* Pods.debug.xcconfig */,
+				26A7B6F7320ABFB74467746B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +171,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 868952171B15064700D1BBF2 /* Build configuration list for PBXNativeTarget "RealmBug" */;
 			buildPhases = (
+				206485479AC61113A872A5A7 /* Check Pods Manifest.lock */,
 				868951F01B15064700D1BBF2 /* Sources */,
 				868951F11B15064700D1BBF2 /* Frameworks */,
 				868951F21B15064700D1BBF2 /* Resources */,
+				346707E3DA895049EF7DEF5F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,14 +261,52 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		206485479AC61113A872A5A7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		346707E3DA895049EF7DEF5F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		868951F01B15064700D1BBF2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86D034F71B15120F00554FA9 /* RCore.h in Sources */,
+				86D034F81B15120F00554FA9 /* RCore.m in Sources */,
 				868952001B15064700D1BBF2 /* ViewController.m in Sources */,
 				868951FD1B15064700D1BBF2 /* AppDelegate.m in Sources */,
+				86D034F01B150D8A00554FA9 /* RChild.m in Sources */,
+				86D034ED1B150C2000554FA9 /* RParent.m in Sources */,
 				868951FA1B15064700D1BBF2 /* main.m in Sources */,
+				86D034EA1B150BBE00554FA9 /* DataService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +432,7 @@
 		};
 		868952181B15064700D1BBF2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49E2F06463518E0DED2ECD89 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RealmBug/Info.plist;
@@ -357,6 +443,7 @@
 		};
 		868952191B15064700D1BBF2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26A7B6F7320ABFB74467746B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RealmBug/Info.plist;
@@ -418,6 +505,7 @@
 				868952191B15064700D1BBF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8689521A1B15064700D1BBF2 /* Build configuration list for PBXNativeTarget "RealmBugTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +514,7 @@
 				8689521C1B15064700D1BBF2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
